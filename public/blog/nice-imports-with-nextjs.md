@@ -5,6 +5,19 @@ tags:
 - code
 ---
 
+# May 2020 update
+
+There was a recent update to Next.js which added inbuilt support for absolute imports. This means we no longer have to sneak in a webpack alias via the `next.config.js`. Instead all we need to do is to add the `baseUrl` config to `jsconfig.json` (JS projects) or `tsconfig.json` (TS projects).
+```
+// jsconfig.json or tsconfig.json
+{
+  "compilerOptions": {
+    "baseUrl": "~"
+  }
+}
+``` 
+This will allow absolute imports from `~` (the root directory). It also integrates with VSCode and other editors, supporting code navigation and other editor features. You can read more about it over at the [Next.js Blog](https://nextjs.org/blog/next-9-4#absolute-imports-and-aliases)
+
 # Nice imports with Next.js
 
 During my React based development, I'll find myself importing a module `from '../../../components/Widget'` and that `../../../` is anyone's guess if it's right first time or not.
